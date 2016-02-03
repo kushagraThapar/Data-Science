@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Sqlite (Xerial) - matrix.db" uuid="c4bf264d-5725-4551-b98c-8cc86b461fcb">
+    <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="a" schema="" catalog="" type="TABLE">
+      <column name="row_num" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="col_num" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="value" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="row_num,col_num"/>
+    </table>
+    <table name="b" schema="" catalog="" type="TABLE">
+      <column name="row_num" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="col_num" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="value" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <primary-key columns="row_num,col_num"/>
+    </table>
+  </data-source>
+  <data-source name="Sqlite (Xerial) - social.db" uuid="cc0125b8-a6a1-4e9e-8f0e-9b705b1f6e9f">
+    <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="Friend" schema="" catalog="" type="TABLE">
+      <column name="ID1" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="ID2" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="Likes" schema="" catalog="" type="TABLE">
+      <column name="ID1" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="ID2" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="Student" schema="" catalog="" type="TABLE">
+      <column name="ID" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="grade" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+    </table>
+  </data-source>
+  <data-source name="Sqlite (Xerial) - university.db" uuid="a2805051-a3eb-45d0-a11c-de750fa9814c">
+    <database-info product="SQLite" version="3.8.9" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
+    <schema name="" catalog=""/>
+    <table name="Dim_Professor" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="gender" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="tenured" sqlType="BIT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="Dim_Student" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="college_year_name" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="undergraduate" sqlType="BIT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="Dim_Term" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="year" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="term" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="Dim_Type" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="type" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="area" sqlType="TEXT" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
+    <table name="Fact_Course_Evaluation" schema="" catalog="" type="TABLE">
+      <column name="professor_id" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="term_id" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="student_id" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="type_id" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="class_score" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="efficiency_score" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="content_score" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+    </table>
+    <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
+      <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+    </table>
+  </data-source>
+</component>
