@@ -1,0 +1,20 @@
+Problem 2:
+Part 3:
+
+If classes can belong to more than one area 
+(e.g. it can be both a theory and systems class) 
+then the following changes to schema can help to achieve here what we are aiming to.
+
+As of Now,
+
+We have a table Dim_Type in which we have an Id, Type and area.
+We also have a Fact_Course_Evaluation table in which we have column Id of table Dim_Type as Type_id.
+
+We need to change the schema in such a way so that in the Fact_Evaluation_Course table, we can have multiple areas from the table Dim_Type.
+
+Solution:
+
+We can create a new table in the database, lets say Dim_Area_Mapping which can store an Id as primary key and
+mapping of ID column of Dim_Type table.
+Now in the Fact_Course_Evaluation table we can use this new generated id in place of Type-Id.
+In this way, the classes can be mapped to various Areas.
