@@ -1,0 +1,47 @@
+This program cleans the class.txt file and then prints the cleaned data in cleaned.txt file.
+
+INSTALLATIONS:
+
+1. Install PyEnchant using the standard Python setuptools procedure:
+    Download and un tar the source files
+    Enter the distribution directory, which contains the file 'setup.py'
+    Execute the command:
+    python setup.py install
+OR
+1. Install pyEnchant using -> pip install pyEnchant
+
+2. Install Edit Distance library using -> pip install editdistance
+
+3. Install NLTK as follows: Run the Python interpreter and type the commands:
+
+    >>> import nltk
+    >>> nltk.download()
+
+
+STEPS:
+
+1. It first reads the class.txt file and then using split function, it splits different columns according to our needs. I have implemented the
+object oriented programing style in this program. There is a class Registrar which has a set of all the professors.
+There is another class Professor which has fields as First Name, Last Name and a set of Courses.
+
+2. The class.txt file is read and single row data is put into Professor class's object which in turn is put into Registrar class's object which
+contains the set of professors.
+
+3. The class uses Py Enchant to get the suggestions and then uses edit distance of maximum 2 to reduce the suggestions to one single correct word.
+ It then replaces the wrong word with the correct one and then stores the correct word in the cleaned.txt file.
+
+4. For query - 1, I have created a set of strings and added all the courses taught by all the professors, this gives us the distinct courses
+
+5. For query - 2, since I already have a set of professors in object Registrar, I find the professor with last name as "Theys" and then print the number
+of courses of professor "Theys"
+
+6. For query-3, I have implemented my own jaccard distance function which calculates the jaccard distance of two courses set taught by any two professors
+I have used this function to calculate jaccard distance for professors which have courses >= 5. Then I find the max jaccard score and print those professors.
+
+ISSUES:
+
+The enchant library is still not able to convert abbreviations. For now I have hard coded them.
+
+CITATIONS:
+
+Discussion of this program involved some great ideas from my colleagues Ashwin Bansod, Krutarth Joshi and Aayush Kataria.

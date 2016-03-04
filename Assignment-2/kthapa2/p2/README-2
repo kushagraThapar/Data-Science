@@ -1,0 +1,20 @@
+This program cleans the Superbowl.html file and then writes the data into result.cv file.
+
+INSTALLATION:
+
+1. Go to the Beautiful Soup web site, http://www.crummy.com/software/BeautifulSoup/
+2. Download the package
+3. Unpack it
+4. In a Terminal window, cd to the resulting directory
+5. Run -> python setup.py install
+
+
+STEPS:
+1. The program transform.py first opens the superbowl.html file using Beautiful Soup and then finds a table inside it. Then it extracts all the data from the table and stores the cleaned superbowl.html in a string.
+
+2. It then uses that string to find the second table and then collects all the strings it has using get_text() method of beautiful soup. It then selects all the text that are relevant to the problem and then write those texts by separating them with comma in result.csv
+
+ISSUES:
+I use Mac Book Pro which runs 64 bit python as there is no 32 bit python for Mac OS X. Result.csv file opens perfectly in my IDE and in any other text editor but it prints some invalid character for the score column when opened in Excel sheet.
+I tried running my program on the Windows machine with 32 bit python and it prints all the data in correct format in Excel sheet.
+I read on some mac forums that there are few differences when using python 64bit and 32 bit on different machines.
