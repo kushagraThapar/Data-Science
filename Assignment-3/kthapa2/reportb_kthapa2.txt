@@ -1,0 +1,105 @@
+This is the report file for Part - B
+This file contains data regarding the problems given in Part- B of the assignment in order wise.
+
+
+1. Determine the sentiment of each tweet
+    Please find enclosed "tweet_sentiment_kthapa2.py" containing python code.
+
+    Here are the top 10 and bottom 10 tweets along with their sentiment score.
+    Top 10 Tweets:
+    [10.0] : ['I know some brilliant people. Some of them are doing their thing tomorrow - best of luck guys. @ActingCDT GR16']
+    [9.0] : ['@REAL_Jahir \n\nShots 4 \nGoals 0\nPassing Acc. 93%\nPasses 64\nChances created 1\nAeriels won 0\nDribbles won 4\nTackles won 1\nTouches 87.']
+    [9.0] : ["I've got a maths exam this week, could I have a good luck tweet please? It'd make my really happy! I love you so much ❤️❤️ @jacquelineMjos"]
+    [9.0] : ['RT @R5_Janaaa: I love love love her eyes❤ https://t.co/lVwvJueUIt']
+    [9.0] : ["@deno_alldayy I'm too fast Alden lol good luck"]
+    [9.0] : ["RT @MileyCyrus_NYC: Being someone's first love is great, but being someone's last love is beyond perfect"]
+    [8.0] : ['@diegosaurs_ please this is important love u hope u got thru whatever u dealt with we are here for u always &lt;3 https://t.co/jQCP4d9nqn']
+    [8.0] : ['RT @heyifeellike: my friends are so pretty i’m proud of myself for attracting beautiful people']
+    [8.0] : ['@indigoheaux and I be like minus the "built like one" part lmao  https://t.co/Gx27HT4N7G']
+    [8.0] : ['I just honestly want to experience what true love feels like']
+
+    Bottom 10 Tweets:
+    [-9.0] : ["RT @ShannonJessie: I can't fuckin stand cheap ass niggas ."]
+    [-9.0] : ['Honestly fucking hate Facebook "300 likes and he will get his head shaved!" Hahaha honestly get the fuck off me pedos']
+    [-9.0] : ["I swear it always makes me laugh when people call me a bitch like I didn't already know that 😒 seriously, bitch I live with myself everyday😂"]
+    [-9.0] : ["If I'm bored during spring break imagine summer, shit kill me now 😪"]
+    [-9.0] : ['RT @pdcxdp: My girlfriend drop dead gorgeous. I dead ass smile every time I look at her']
+    [-9.0] : ['I would shoot a bitch before I abuse her']
+    [-10.0] : ['niggas talk more than bitches these days']
+    [-10.0] : ['33. You got the niggas / bitches ?']
+    [-11.0] : ['RT @medzzzx: when a bitch talkin shit but u got screenshots that could ruin her whole life 😊 https://t.co/MitQ9hzqD5']
+    [-12.0] : ['RT @harleyfriesen_: I fucking hate cancer fuck you']
+
+
+    Implementation Details:
+
+    For this part, I am first storing the sentiment scores of each word or phrase provided in the sentiment file which is AFINN-111.txt.
+    Then I am reading the streaming_output_full_kthapa2.txt file and processing all tweets by parsing them as JSON object.
+    Then I am extracting the "text" part of each tweet and using the split() method, I am splitting the words in "text" field of each tweet
+    and calculating the sentiment score of each tweet by adding the sentiment scores of individual words. Finally I am printing the top 10
+    tweets with sentiment scores and bottom 10 tweets with sentiment scores.
+
+
+2. Happiest Breaking Bad Actor
+    Please find the enclosed "happiest_actor_kthapa2.py" python code file.
+
+    Average sentiment score for each actor is:
+
+    [1.33] : ['mrbobodenkirk']
+    [1.0909090909090908] : ['quiethandfilms']
+    [1.0309278350515463] : ['RjMitte']
+    [0.8979591836734694] : ['Krystenritter']
+    [0.7849462365591398] : ['aaronpaul_8']
+    [0.75] : ['betsy_brandt']
+    [0.75] : ['deanjnorris']
+    [0.71] : ['BryanCranston']
+    [0.6161616161616161] : ['CharlesEbaker']
+    [0.4020618556701031] : ['DanielMoncada80']
+    [0.16666666666666666] : ['LuisMoncada77']
+    [-0.09375] : ['mattjonesisdead']
+
+    Implementation Details:
+
+    For this part, first I am storing the sentiment scores provided in AFINN-111.txt into a static set.
+    Then I am reading the breaking_bad_tweets_kthapa2.csv file and prcoessing the data into a map which contains
+    the user name of each actor as the key and sentiment score of all the tweets as the value by iterating over the
+    csv file data. I am also storing another map which contains the user name as the key and number of tweets as the
+    value for that user name to calculate the average sentiment score of each actor.
+    Finally I am printing all the user names and their respective sentiment scores.
+
+
+3. Happiest State
+    Please find the enclosed "happiest_state_kthapa2.py" file containing python code.
+
+    Here are the top 5 happiest states and unhappiest states along with their frequencies.
+
+    Top 5 happiest states:
+
+    [2.000000] : [NV]
+    [1.000000] : [WV]
+    [1.000000] : [IA]
+    [0.812500] : [TX]
+    [0.666667] : [NC]
+
+    Top 5 unhappiest states:
+
+    [-1.000000] : [UT]
+    [-1.000000] : [HI]
+    [-2.000000] : [GA]
+    [-3.000000] : [WI]
+    [-5.000000] : [IN]
+
+    Implementation Details:
+
+    For this part, first I am storing the sentiment scores provided in AFINN-111.txt into a static set.
+    then I am reading the streaming_output_full_kthapa2.txt file and parsing each tweet into a JSON object.
+    Then from that JSON object, I am checking, if the "place_type" field is "city", then I am splitting the
+    "full_name" field and storing the value at the last position of that array. Since that value is automatically in
+    abbreviated form, so there is no need to process it.
+    For the "place_type" as "admin", I am taking the value at first position of that "full_name" field, and then
+    using the static state name abbreviation map, I am checking the name of that state into that map and getting the
+    abbreviated name as value for that state.
+    Then after getting the states, in another dictionary, I am storing the sentiment score of each state and in another
+    dictionary, I am storing the tweet count of each state. Using these two fields, I am calculating the average sentiment
+    score of each state. Finally I am printing the top 5 and bottom top 5 sentiment scores of each state along with
+    the state abbreviated name.

@@ -1,0 +1,30 @@
+<q1>
+('Cassandra',)
+('Gabriel',)
+('Jordan',)
+('Tiffany',)
+</q1>
+<q2>
+(9, 4)
+(10, 4)
+(11, 4)
+(12, 4)
+</q2>
+<q3>
+('Alexis', 11)
+('Andrew', 10)
+('Austin', 11)
+('Brittany', 10)
+('Cassandra', 9)
+('Gabriel', 9)
+('Gabriel', 11)
+('Haley', 10)
+('Jessica', 11)
+('John', 12)
+('Jordan', 9)
+('Jordan', 12)
+('Kris', 10)
+('Kyle', 12)
+('Logan', 12)
+('Tiffany', 9)
+</q3>

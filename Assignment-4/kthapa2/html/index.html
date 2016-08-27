@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Science - Assignment-4</title>
+</head>
+<body>
+<h1>Data Science Assignment - 4 Write Up</h1>
+<h2>Kushagra Thapar - UIN (671611758) - kthapa2</h2>
+<h2>1. Tweet Processing Steps</h2>
+<h3>Tweet Cleaning Steps</h3>
+<ul>
+    <li>
+        The first basic step which I have applied is to split the whole tweet with space " ".
+    </li>
+    <li>
+        Then I converted all the split words of the tweet to lower case.
+    </li>
+    <li>
+        I have used Porter Stemmer to stem the words to their root words.
+    </li>
+    <li>
+        I searched for @User and changed it "AT_USER" word.
+    </li>
+    <li>
+        I searched for words starting with "www." or "http://" or "https://" to find the urls and replaced them
+        with "URL"
+    </li>
+    <li>
+        After replacing these words, I have stripped all the punctuations.
+    </li>
+    <li>
+        I have replaced all the words starting from "#xyz" to "xyz.
+    </li>
+    <li>
+        I have also ignored the words, which start from an alphabet.
+    </li>
+    <li>
+        I have also ignored the stopwords.
+    </li>
+</ul>
+<h3>RDD Formation</h3>
+<ul>
+    <li>
+        After cleaning the Tweets, I have created the bag of words model from tweets.
+    </li>
+    <li>
+        After forming the bag of words model, I have used TF-IDF to convert the bag of words model to Frequencies which
+        then can be input to different Machine Learning Models.
+    </li>
+    <li>
+        I have input this TF-IDF RDD to Naive Bayes Model and Logistic Regression Model.
+    </li>
+</ul>
+<hr>
+<h2>2. Feature Space Description</h2>
+<ul>
+    <li>
+        The Feature Space here for this Twitter Sentiment Prediction Assignment, is the bag of words model.
+    </li>
+    <li>
+        In this model we process each tweet and then find the most informative features, by finding out the most
+        informative words.
+    </li>
+    <li>
+        I have used Unigrams for extracting the informative words.
+    </li>
+    <li>
+        The most informative words can be found out by cleaning the words and extracting only those words which are
+        important for a tweet.
+    </li>
+    <li>
+        Then these important words become the features for a tweet and then they are trained using different models.
+    </li>
+    <li>
+        Here I have extracted the features using below mentioned processes.
+    </li>
+</ul>
+<hr>
+<h2>3. Extra Work Processing</h2>
+<ul>
+    <li>
+        I have trained the bag of words model using Hashing Term Frequency process. Then I have applied Inverse Document
+        Term Frequency on the bag of words model of training data.
+    </li>
+    <li>
+        For the testing data, I have cleaned the testing data as well using the same techniques which I have mentioned
+        above.
+    </li>
+    <li>
+        After cleaning the testing data, I have created the bag of words model from the testing data.
+    </li>
+    <li>
+        Hashing Term Frequency is then applied to the testing bag of words model.
+    </li>
+    <li>
+        Cleaning and creating the Hash Term Frequency has helped me a lot to get better accuracy and precision for both
+        the models, i.e. Naive Bayes and Logistic Regression.
+    </li>
+</ul>
+<hr>
+<h2>4. Accuracy, Precision, Recall, F Measure, Confusion Matrix</h2>
+<h3>Naive Bayes Accuracy</h3>
+<ul>
+    <li>Accuracy on Training Data -> 92.4 %</li>
+    <li>Accuracy on Testing Data -> 76.04 %</li>
+    <li>K - Fold Accuracy -> 71.1 %</li>
+</ul>
+<h3>Logistic Regression Accuracy</h3>
+<ul>
+    <li>Accuracy on Training Data -> 96.0 %</li>
+    <li>Accuracy on Testing Data -> 73.1 %</li>
+    <li>K - Fold Accuracy -> 73.1 %</li>
+</ul>
+<h3>Naive Bayes Precision, Recall, F Measure and Confusion Matrix</h3>
+<ul>
+    <li>To calculate these values, I have used the "MulticlassMetrics" class and APIs of Spark</li>
+    <li>Precision -> 76.4 %</li>
+    <li>Recall -> 76.04 %</li>
+    <li>F Measure Score -> 76.04 %</li>
+    <li>Confusion Matrix ->
+        <table border="1">
+            <tr>
+                <td>
+                    136
+                </td>
+                <td>
+                    41
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    45
+                </td>
+                <td>
+                    137
+                </td>
+            </tr>
+        </table>
+    </li>
+</ul>
+<h3>Logistic Regression Precision, Recall, F Measure and Confusion Matrix</h3>
+<ul>
+    <li>To calculate these values, I have used the "MulticlassMetrics" class and APIs of Spark</li>
+    <li>Precision -> 73.8 %</li>
+    <li>Recall -> 73.8 %</li>
+    <li>F Measure Score -> 73.8 %</li>
+    <li>Confusion Matrix ->
+        <table border="1">
+            <tr>
+                <td>
+                    122
+                </td>
+                <td>
+                    55
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    39
+                </td>
+                <td>
+                    143
+                </td>
+            </tr>
+        </table>
+    </li>
+</ul>
+<hr>
+<h2>5. Accuracy Plots</h2>
+<ul>
+    <li>
+        I have plotted the Accuracy of Naive Bayes and Logistic Regression in a Bar Chart with comparing each type of
+        accuracy in both the cases. Below is the accuracy plots:
+    </li>
+    <img src="accuracy.png">
+    <li>Here we can clearly see that Naive Bayes overfits the most. Hence it is not a good model for this particular
+        project.
+    </li>
+</ul>
+<hr>
+<h2>6. Standard Terminologies</h2>
+<ul>
+    <li>
+        Precision -> Precision can be defined as the ratio of the correct positive observations to the total positive
+        observations. This can be formulated as <br>[True Positive Values / (True Positive Values + False Positive
+        Values)]
+    </li>
+    <li>
+        Recall -> Similarly, Recall can be defined as the ratio of the correctly predicted positive observations to the
+        total positive observations. This can be formulated as <br>[True Positive Values / (True Positive Values + False
+        Negative Values)]
+    </li>
+    <li>
+        F Score -> F Measure is the measure of a test's accuracy. The F1 score can be defined as the weighted average of
+        the precision and recall. Hence it takes both false positive values and false negative values.
+    </li>
+    <li>
+        Confusion Matrix -> Confusion Matrix can be defined as the measure to describe the performance of a
+        classification of a model on a set of test data for which the correct values are already known.
+    </li>
+</ul>
+<hr>
+<h2>7. ROC Curve and Area Under the Curve</h2>
+<ul>
+    <li>Below is the ROC curve plot and the Area under the curve is also mentioned. I have plotted the ROC curve just
+        for the Logistic Regression.
+    </li>
+    <img src="roc-curve.png">
+    <li>
+        Area under the ROC curve is 0.5, which is calculated using the "BinaryClassificationMetrics" class and APIs of
+        Spark.
+    </li>
+</ul>
+<hr>
+<h2>8. Top 20 informative features</h2>
+<ul>
+    <li>I couldn't find any Spark API to find our the top 20 most informative features. It would have been better if we
+        were allowed to use other Python Libraries as well.
+    </li>
+</ul>
+<hr>
+<h2>9. Classifier Performance</h2>
+<ul>
+    <li>
+        From the above plots, we can clearly see the Logistic Regression performs very better than the Naive Bayes
+        classifier.
+    </li>
+    <li>
+        The reason behind this difference is that Naive Bayes takes a very big assumption into account. The assumption
+        is that the features are independent. But this is not the case in the bag of words model. Hence the Logistic
+        Regression model performs better than the Naive Bayes Model.
+    </li>
+</ul>
+<hr>
+<h2>10. Correctly Predicted Tweets and Incorrectly Predicted Tweets</h2>
+<ul>
+    <li>
+        5 Correctly Predicted Tweets are:
+        <ul>
+            <li>
+                Reading my kindle2... Love it... Lee childs is good read. -> 0.91
+            </li>
+            <li>
+                @kenburbary You'll love your Kindle2. I've had mine for a few months and never looked back. The new big
+                one is huge! No need for remorse! :) -> 0.81
+            </li>
+            <li>
+                good news, just had a call from the Visa office, saying everything is fine.....what a relief! I am sick
+                of scams out there! Stealing! -> 0.89
+            </li>
+            <li>
+                North Korea, please cease this douchebaggery. China doesn't even like you anymore. http://bit.ly/NeHSl
+                -> 0.12
+            </li>
+            <li>
+                It's unfortunate that after the Stimulus plan was put in place twice to help GM on the back of the
+                American people has led to the inevitable -> 0.23
+            </li>
+        </ul>
+    </li>
+    <li>
+        5 Incorrectly Predicted Tweets are:
+        <ul>
+            <li>
+                watching Night at The Museum . Lmao -> 0.43
+            </li>
+            <li>
+                @kirstiealley my dentist is great but she's expensive...=( -> 0.81
+            </li>
+            <li>
+                Safari 4 is fast :) Even on my shitty AT&amp;T tethering. -> 0.9
+            </li>
+            <li>
+                The Times of India: The wonder that is India's election. http://bit.ly/p7u1H -> 0.28
+            </li>
+            <li>
+                Colin Powell rocked yesterday on CBS. Cheney needs to shut the hell up and go home.Powell is a man of
+                Honor and served our country proudly -> 0.73
+            </li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>
